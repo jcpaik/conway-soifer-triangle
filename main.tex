@@ -13,6 +13,8 @@
 \usepackage{svg}
 \usepackage{float}
 \usepackage{xcolor}
+\usepackage{tkz-base}
+\usepackage{subfig}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -120,6 +122,35 @@ Define the function \(\tilde{f}_T : \mathbb{R} \to \mathbb{R}\) as the following
 
 In this paper, let \(S^1\) be the abelian group quotient \(\mathbb{R} /\mathbb{Z}\). For every unit upright triangle \(T\), define \(f_T : S^1 \to \mathbb{R}\) as the function \(f_T(t + \mathbb{Z}) = \sum_{n \in \mathbb{Z}} \tilde{f}_T(t + n)\).
 For every \(a \in S^1\), define \(\tilde{a} \in [0, 1)\) as the unique representator of \(a\) in the interval \([0, 1)\). Define \(\nabla (x) = \tilde{x}\) for all \(x \in S^1\). Define \(\Delta_0 (0) = 1\) and \(\Delta_0(x) = 1 - \tilde{x}\) for all nonzero \(x \in \mathbb{R}/\mathbb{Z}\). For every \(a \in S^1\), define the functions \(\Delta_a , \nabla_a : S^1 \to \mathbb{R}\) as the functions \(\nabla_a(x) = \nabla_0(x-a)\) and \(\Delta_a(x) = \Delta_0(x-a)\). If an unit upright triangle \(T\) is pointed upwards, we have \(f_T = \Delta_{y_T}\), and if \(T\) is pointed downwards, we have \(f_T = \nabla_{y_T}\). 
+
+
+\begin{figure}
+  \centering
+  \subfloat{
+    \begin{tikzpicture}
+      \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
+      \tkzAxeXY
+      \draw[blue] (0, 0.7) -- (0.3, 1);
+      \draw[blue] (0.3, 0) -- (1, 0.7);
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 0) {};
+    \end{tikzpicture}
+  }
+  \qquad
+  \subfloat{
+    \begin{tikzpicture}
+      \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
+      \tkzAxeXY
+      \draw[blue] (0, 0.3) -- (0.3, 0);
+      \draw[blue] (0.3, 1) -- (1, 0.3);
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 0) {};
+    \end{tikzpicture}
+  }
+  \label{fig:graph}
+  \caption{Graphs of $\nabla_a(x)$ and $\Delta_a(x)$.}
+\end{figure}
+
 
 We now prove \Cref{thm:triangle-cover} by contradiction. Assume that the union \(X\) of \(n\) unit upright equilateral triangles \(S_1, S_2, \dots, S_n\) with disjoint interiors can be covered by \(n+1\) triangles \(T'_0, T'_1, \dots, T'_n\) of side \(< 1\). Take arbitrary \(n + 1\) triangles \(T_0, T_1, \dots, T_n\) of side 1 so that each \(T_i\) contains smaller triangle \(T_i'\).
 
