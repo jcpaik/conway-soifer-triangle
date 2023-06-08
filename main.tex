@@ -130,8 +130,10 @@ For every \(a \in S^1\), define \(\tilde{a} \in [0, 1)\) as the unique represent
     \begin{tikzpicture}[scale=2.5]
       \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
       \tkzAxeXY
+      \tkzHTick[mark=|]{0.3}
       \draw[blue] (0, 0.7) -- (0.3, 1);
       \draw[blue] (0.3, 0) -- (1, 0.7);
+      \draw[red, dashed] (0.3, 0) -- (0.3, 1);
       \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 1) {};
       \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 0) {};
     \end{tikzpicture}
@@ -141,15 +143,20 @@ For every \(a \in S^1\), define \(\tilde{a} \in [0, 1)\) as the unique represent
     \begin{tikzpicture}[scale=2.5]
       \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
       \tkzAxeXY
+      \tkzHTick[mark=|]{0.3}
       \draw[blue] (0, 0.3) -- (0.3, 0);
       \draw[blue] (0.3, 1) -- (1, 0.3);
+      \draw[red, dashed] (0.3, 0) -- (0.3, 1);
       \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 1) {};
       \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.3, 0) {};
     \end{tikzpicture}
   }
   \label{fig:graph}
-  \caption{Graphs of $\nabla_a(x)$ and $\Delta_a(x)$.}
+  \caption{Graphs of $\nabla_a(x)$ and $\Delta_a(x)$ for $a = 0.3$.}
 \end{figure}
+
+
+
 
 
 We now prove \Cref{thm:triangle-cover} by contradiction. Assume that the union \(X\) of \(n\) unit upright equilateral triangles \(S_1, S_2, \dots, S_n\) with disjoint interiors can be covered by \(n+1\) triangles \(T'_0, T'_1, \dots, T'_n\) of side \(< 1\). Take arbitrary \(n + 1\) triangles \(T_0, T_1, \dots, T_n\) of side 1 so that each \(T_i\) contains smaller triangle \(T_i'\).
@@ -196,6 +203,77 @@ Let \(f : S^1 \to \mathbb{R}\) be any function in \(\mathcal{T}\) such that \(\i
 
 \label{lem:triangle-unit-area}
 \end{lemma}
+
+\begin{figure}
+  \centering
+  \subfloat{
+    \begin{tikzpicture}[scale=2.5]
+      \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
+      \tkzAxeXY
+      \tkzHTick[mark=|]{0.06}
+      \tkzHTick[mark=|]{0.26}
+      \tkzHTick[mark=|]{0.46}
+      \tkzHTick[mark=|]{0.66}
+      \tkzHTick[mark=|]{0.86}
+      \draw[blue] (0, 0.7) -- (0.06, 1);
+      \draw[blue] (0.06, 0) -- (0.26, 1);
+      \draw[blue] (0.26, 0) -- (0.46, 1);
+      \draw[blue] (0.46, 0) -- (0.66, 1);
+      \draw[blue] (0.66, 0) -- (0.86, 1);
+      \draw[blue] (0.86, 0) -- (1, 0.7);
+      \draw[red, dashed] (0.06, 0) -- (0.06, 1);
+      \draw[red, dashed] (0.26, 0) -- (0.26, 1);
+      \draw[red, dashed] (0.46, 0) -- (0.46, 1);
+      \draw[red, dashed] (0.66, 0) -- (0.66, 1);
+      \draw[red, dashed] (0.86, 0) -- (0.86, 1);
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.06, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.26, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.46, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.66, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.86, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.06, 0) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.26, 0) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.46, 0) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.66, 0) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.86, 0) {};
+    \end{tikzpicture}
+  }
+  \qquad
+  \subfloat{
+    \begin{tikzpicture}[scale=2.5]
+      \tkzInit[xmin = -0.5, xmax = 1, ymin = -0.5, ymax = 1]
+      \tkzAxeXY
+      \tkzHTick[mark=|]{0.06}
+      \tkzHTick[mark=|]{0.26}
+      \tkzHTick[mark=|]{0.46}
+      \tkzHTick[mark=|]{0.66}
+      \tkzHTick[mark=|]{0.86}
+      \draw[blue] (0, 0.3) -- (0.06, 0);
+      \draw[blue] (0.06, 1) -- (0.26, 0);
+      \draw[blue] (0.26, 1) -- (0.46, 0);
+      \draw[blue] (0.46, 1) -- (0.66, 0);
+      \draw[blue] (0.66, 1) -- (0.86, 0);
+      \draw[blue] (0.86, 1) -- (1, 0.3);
+      \draw[red, dashed] (0.06, 0) -- (0.06, 1);
+      \draw[red, dashed] (0.26, 0) -- (0.26, 1);
+      \draw[red, dashed] (0.46, 0) -- (0.46, 1);
+      \draw[red, dashed] (0.66, 0) -- (0.66, 1);
+      \draw[red, dashed] (0.86, 0) -- (0.86, 1);
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.06, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.26, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.46, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.66, 1) {};
+      \node [circle, draw, fill, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.86, 1) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.06, 0) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.26, 0) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.46, 0) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.66, 0) {};
+      \node [circle, draw, fill=none, line width = .5pt, color = blue, inner sep = 0pt, minimum size = 3pt] (ca) at (0.86, 0) {};
+    \end{tikzpicture}
+  }
+  \label{fig:graph}
+  \caption{Graphs of $x \mapsto \{ax + c\}$ and $x \mapsto 1 - \{ax + c\}$ for $a = 5$ and $c = 0.7$.}
+\end{figure}
 
 \begin{proof}
 By \Cref{lem:triangle-group}, there is some odd number \(a \in \mathbb{Z}\) such that \(f'(x)\) is \(a\) for all \(x\) except for a finite number of values. Let \(f(0) = c\), then by \Cref{lem:triangle-group} again we have \(f(x)\) equal to \(ax + c\) modulo 1 for all \(x \in S^1\). Let \(g : S^1 \to \mathbb{R}\) be the function \(g(x) = \{ax + c\}\). Then for every \(x \in S^1\), as the value \(f(x)\) is nonnegative and equal to \(ax + c\) modulo 1, we have \(f(x) \geq g(x) \geq 0\). But note that the integral \(\int g\) is exactly equal to \(1/2\). So \(f\) and \(g\) should be equal almost everywhere. As \(f\) is right-continuous by \Cref{lem:triangle-group}, \(f(x)\) should be equal to the right limit \(g(x -)\) of \(g\).
