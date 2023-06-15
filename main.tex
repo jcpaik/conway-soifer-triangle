@@ -43,15 +43,18 @@
 \email{seewoo5@berkeley.edu}
 
 \begin{abstract}
-Conway and Soifer asked if an equilateral triangle \(T\) of side \(n + \varepsilon\) with sufficiently small \(\varepsilon > 0\) can be covered by \(n^2 + 1\) unit equilateral triangles, and provided two ways to cover \(T\) with \(n^2 + 2\) unit triangles. We show that if we require the sides of all triangles to be parallel to the sides of \(T\) (e.g. $\bigtriangleup$ and $\bigtriangledown$), then it is impossible to cover \(T\) with exactly \(n^2 + 1\) unit equilateral triangles.
+Conway and Soifer showed that an equilateral triangle \(T\) of side \(n + \varepsilon\) with sufficiently small $\varepsilon > 0$ can be covered by \(n^2 + 2\) unit equilateral triangles.
+They conjectured that it is impossible to cover $T$ with \(n^2 + 1\) unit equilateral triangles no matter how small $\varepsilon$ is.
+We make progress towards their conjecture by showing that if we require the sides of all triangles to be parallel to the sides of \(T\) (e.g. $\bigtriangleup$ and $\bigtriangledown$), then it is impossible to cover \(T\) with \(n^2 + 1\) unit equilateral triangles for any $\varepsilon > 0$.
+As the coverings of $T$ by Conway and Soifer only involve triangles with parallel sides,
+our result determines the exact minimum number $n^2+1$ of unit equilateral triangles with parallel sides required to cover $T$.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Conway and Soifer showed that \(n^2 + 2\) unit equilateral triangles can cover an equilateral triangle $T$ of side $> n $, and asked if $n^2 + 1$ unit equilateral triangles can cover $T$ \cite{conway2004coverup, conway2005covering}.
-\Cref{fig:triangle1} and \ref{fig:triangle2} depict the coverings of $T$ with \(n^2 + 2\) triangles found by Conway and Soifer respectively \cite{soifer2009coffee}.
+Conway and Soifer provided two ways to cover an equilateral triangle $T$ of side $> n$ with \(n^2 + 2\) unit equilateral triangles (\Cref{fig:triangle1} and \ref{fig:triangle2}), and conjectured that $n^2 + 1$ unit equilateral triangles cannot cover $T$ \cite{conway2004coverup, conway2005covering}.
 
 \begin{figure}[h]
    \begin{minipage}{0.5\textwidth}
@@ -68,6 +71,16 @@ Conway and Soifer showed that \(n^2 + 2\) unit equilateral triangles can cover a
    \end{minipage}
 \end{figure}
 
+\begin{theorem}[Conway and Soifer \cite{conway2004coverup, conway2005covering}]
+\label{thm:main-prev}
+$n^2 + 2$ unit equilateral triangles can cover an equilateral triangle $T$ of side $n + \varepsilon$ for a sufficiently small $\varepsilon > 0$.
+\end{theorem}
+
+\begin{conjecture}[Conway and Soifer \cite{conway2004coverup}]
+\label{conj:main}
+$n^2 + 1$ unit equilateral triangles cannot cover an equilateral triangle $T$ of side $> n$.
+\end{conjecture}
+
 \begin{comment}
 In \Cref{fig:triangle1}, Conway used $(n-1)^2$ triangles to cover the upper part of $T$ with side $n-1$.
 This leaves the trapezoid with  height slightly greater than 1 and the bottom side slightly larger than $n$ uncovered.
@@ -76,18 +89,26 @@ In \Cref{fig:triangle2}, Soifer used $2n - 1$ triangles to cover a trapezoid of 
 By stacking such $n-1$ trapezoids of height slightly less than 1 and decreasing width, we are left with a single triangle of side $> 1$, and he covers the remaining triangle with three unit triangles.
 \end{comment}
 
-Related, Karabash and Soifer showed that for every non-equilateral triangle \(T\), \(n^2 + 1\) triangles similar to \(T\) and with the ratio of linear sizes \(1: (n + \varepsilon)\), can cover \(T\) \cite{karabash2005covering}. 
-Also, they generalized the result of Conway and Soifer and showed that a \emph{trigon}\footnote{A connected shape formed by unit equilateral triangles with matching edges.} made of \(n\) unit equilateral triangles can be covered by \(n + 2\) triangles of side \(1 - \varepsilon\) \cite{karabash2005covering}.
+Related, Karabash and Soifer showed that for every non-equilateral triangle \(T\), \(n^2 + 1\) triangles similar to \(T\) and with the ratio of linear sizes \(1: (n + \varepsilon)\) can cover \(T\) \cite{karabash2005covering},
+so the ``equilaterality'' is essential for \Cref{conj:main} to be true \cite{conway2004coverup, soifer2009coffee}.
+Also, Karabash and Soifer generalized the coverings of Conway and Soifer and showed that a \emph{trigon}\footnote{A connected shape formed by unit equilateral triangles with matching edges.} made of \(n\) unit equilateral triangles can be covered by \(n + 2\) triangles of side \(1 - \varepsilon\) \cite{karabash2005covering}.
 A similar problem of covering a square of side \(n + \varepsilon\) with unit squares has been also extensively studied \cite{karabash2006sharp, karabash2008note, chung2009packing, wang2016new, chungEfficientPackingsUnit2020}.
-Still, to the best of the authors' knowledge, the original question raised by Conway and Soifer haven't been addressed directly in the literature.
+Still, to the best of the authors' knowledge, the original \Cref{conj:main} raised by Conway and Soifer hasn't been addressed directly in the literature.
 
 Define an equilateral triangle as \emph{vertical} if one side of the triangle is parallel to the $x$-axis.
-Note that both triangles $\bigtriangleup$ and $\bigtriangledown$ are vertical, and all the unit triangles used in Figure 1 and 2 are vertical.
+Note that both triangles $\bigtriangleup$ and $\bigtriangledown$ are vertical, and all the unit triangles used in Conway and Soifer's constructions (\Cref{fig:triangle1} and \ref{fig:triangle2}) are vertical.
 Also, the generalized covering of trigons by Karabash and Soifer \cite{karabash2005covering} only uses vertical triangles as well.
 Thus, it is natural to ask if one can cover the equilateral triangle of side \(> n\) with \(n^2 + 1\) vertical unit triangles.
-In this paper, we show that such covering with vertical unit triangles does not exist.
+In this paper, we show that it is impossible.
 
-The proof generalizes to an arbitrary union \(X\) of \(n\) vertical triangles with disjoint interiors: it is impossible to cover \(X\) with \(n + 1\) equilateral triangles of side \(< 1\).
+\begin{theorem}
+
+\(n^2 + 1\) unit vertical equilateral triangles cannot cover an vertical equilateral triangle of side \(> n\).
+
+\label{thm:triangle-cover-cor}
+\end{theorem}
+
+Our proof generalizes to an arbitrary union \(X\) of \(n\) vertical triangles with disjoint interiors: it is impossible to cover \(X\) with \(n + 1\) vertical equilateral triangles of side \(< 1\).
 
 \begin{theorem}
 
@@ -96,21 +117,16 @@ Let \(X\) be any union of \(n\) unit vertical equilateral triangles \(S_1, S_2, 
 \label{thm:triangle-cover}
 \end{theorem}
 
-To recover the original problem, assume by contradiction that an vertical equilateral triangle \(T\) of side \(> n\) can be covered by \(n^2 + 1\) unit vertical equilateral triangles. Shrink the covering so that \(T\) have side exactly \(n\) and the small triangles have side \(< 1\). Then we get contradiction by \Cref{thm:triangle-cover} as \(T\) is a union of \(n^2\) unit triangles with disjoint interiors.
+To recover \Cref{thm:triangle-cover-cor} from \Cref{thm:triangle-cover}, assume by contradiction that an vertical equilateral triangle \(T\) of side \(> n\) can be covered by \(n^2 + 1\) unit vertical equilateral triangles. Shrink the covering so that \(T\) have side exactly \(n\) and the small triangles have side \(< 1\). Then we get contradiction by \Cref{thm:triangle-cover} as \(T\) is a union of \(n^2\) unit vertical triangles with disjoint interiors.
+
+As the coverings of \(T\) by Conway and Soifer (\Cref{fig:triangle1} and \ref{fig:triangle2}) and the coverings of trigons by Karabash and Soifer only uses vertical triangles,
+we match the exact minimum number of unit vertical equilateral triangles required for covering.
 
 \begin{corollary}
 
-\(n^2 + 1\) unit vertical equilateral triangles cannot cover an vertical equilateral triangle of side \(> n\).
+The minimum number of unit vertical equilateral triangles required to cover a vertical equilateral triangle of side \(n + \varepsilon\) with a sufficiently small $\varepsilon > 0$ is exactly \(n^2+2\).
 
-\label{cor:triangle-cover}
-\end{corollary}
-
-With the covering of \(T\) by Conway and Soifer (\Cref{fig:triangle1} and \ref{fig:triangle2}), and the covering of trigons by Karabash and Soifer,
-we match the exact minimum number of vertical unit equilateral triangles required for covering.
-
-\begin{corollary}
-
-The minimum number of unit vertical equilateral triangles required to cover an vertical equilateral triangle of side \(> n\) is exactly \(n^2+2\). Also, the minimum number of unit vertical triangles required to cover a trigon of \(n\) triangles is exactly \(n + 2\).
+Also, the minimum number of unit vertical triangles required to cover a trigon made of \(n\) vertical equilateral triangles of side \(1 + \varepsilon\) with a sufficiently small $\varepsilon > 0$ is exactly \(n + 2\).
 
 \label{cor:triangle-cover-number}
 \end{corollary}
