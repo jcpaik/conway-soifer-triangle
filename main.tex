@@ -71,6 +71,18 @@ Conway and Soifer provided two ways to cover an equilateral triangle $T$ of side
    \end{minipage}
 \end{figure}
 
+\textcolor{blue}{
+For Figure \ref{fig:triangle1}, we first cover the upper part of the original equilateral triangle of side length $n+\epsilon$ equilateral triangle of side length $n-1$ with $(n-1)^2$ triangles (light red triangles). After that, the remaning part is a trapezoid of lengths $1+\epsilon$, $n+\epsilon$, $1+\epsilon$, and $n-1$. Now put $2n-2$ triangles from left, alternatively (green triangles), then we can check that the remaining part is a parallelogram of lengths $1+\epsilon$ and $\epsilon n$, minus a small equilateral triangle of length $\epsilon$ on the left-upper corner.
+This can be covered with 2 triangles if $\epsilon \leq 1 / (n + 1)$ (blue triangles).
+\newline
+For Figure \ref{fig:triangle2}, we cover the large triangle from the bottom. We first cover the bottom layer with $n$ upward triangles and $n-1$ downward triangles, with $\epsilon' = \epsilon / (n-1)$ deviations (light red triangles). Then the resulting shape is a trapezoid of lengths $1 - \epsilon'$, $n +(n-1)\epsilon'$, $1 - \epsilon'$, and $n - 1 + n\epsilon'$, with small ``bump" triangles of lengths $\epsilon'$. Now we stack the next bottom layer with $n-1$ upward triangles and $n-2$ downward triangles, with $\epsilon''$ deviations. To cover the upper side of the light red trapezoid tightly, our new $\epsilon''$ should satisfy $(n-1) + (n-2)\epsilon'' = (n-1) + n\epsilon'$, hence $\epsilon'' = n\epsilon' / (n-2)$. Continue this until you stack up the total $(n-1)$ layers, where the top layer (blue triangles) consists of 2 upward triangles and 1 downward triangle with deviation
+$$
+\frac{n}{n-2} \frac{n-1}{n-3} \frac{n-2}{n-4} \cdots \frac{3}{1} \epsilon' = \frac{n(n-1)}{2} \epsilon' = \frac{n}{2} \epsilon.
+$$
+The remaining part of the triangle can be covered with three triangles of unit lengths if $1 + \frac{n}{2}\epsilon \le \frac{3}{2}$, i.e. if $\epsilon \leq \frac{1}{n}$.
+}
+
+
 \begin{theorem}[Conway and Soifer \cite{conway2004coverup, conway2005covering}]
 \label{thm:main-prev}
 $n^2 + 2$ unit equilateral triangles can cover an equilateral triangle $T$ of side $n + \varepsilon$ for a sufficiently small $\varepsilon > 0$.
