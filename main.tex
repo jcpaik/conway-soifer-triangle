@@ -45,17 +45,30 @@
 \begin{abstract}
 Conway and Soifer showed that an equilateral triangle \(T\) of side \(n + \varepsilon\) with sufficiently small $\varepsilon > 0$ can be covered by \(n^2 + 2\) unit equilateral triangles.
 They conjectured that it is impossible to cover $T$ with \(n^2 + 1\) unit equilateral triangles no matter how small $\varepsilon$ is.
-We make progress towards their conjecture by showing that if we require the sides of all triangles to be parallel to the sides of \(T\) (e.g. $\bigtriangleup$ and $\bigtriangledown$), then it is impossible to cover \(T\) with \(n^2 + 1\) unit equilateral triangles for any $\varepsilon > 0$.
+
+We show that if we require the sides of all triangles to be parallel to the sides of \(T\) (e.g. $\bigtriangleup$ and $\bigtriangledown$), then it is impossible to cover \(T\) with \(n^2 + 1\) unit equilateral triangles for any $\varepsilon > 0$.
 As the coverings of $T$ by Conway and Soifer only involve triangles with parallel sides,
-our result determines the exact minimum number $n^2+1$ of unit equilateral triangles with parallel sides required to cover $T$.
+our result determines the exact minimum number $n^2+2$ of unit equilateral triangles with parallel sides required to cover $T$.
+
+Using our method, we also determine the largest value $\varepsilon = 1/n$ such that the vertical triangle $T$ of side $n + \varepsilon$ can be covered by $n^2+2$ vertical equilateral triangles,
+which is achieved by the construction of Conway and Soifer.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
 
-Conway and Soifer provided two ways to cover an equilateral triangle $T$ of side $> n$ with \(n^2 + 2\) unit equilateral triangles (\Cref{fig:triangle1} and \ref{fig:triangle2}), and conjectured that $n^2 + 1$ unit equilateral triangles cannot cover $T$ \cite{conway2004coverup, conway2005covering}.
+Conway and Soifer provided two ways to cover an equilateral triangle $T$ of side $> n$ with \(n^2 + 2\) unit equilateral triangles, and conjectured that $n^2 + 1$ unit equilateral triangles cannot cover $T$ \cite{conway2004coverup, conway2005covering}.
+Their paper was famously short, and was deliberately made so by the authors as an attempt to set the world record for the shortest math paper ever; see \cite{soifer2009coffee} for the full story by the second author.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{triangle1.png}
+\caption{}
+\label{fig:triangle1}
+\end{figure}
+
+\begin{comment}
 \begin{figure}[h]
    \begin{minipage}{0.5\textwidth}
      \centering
@@ -71,7 +84,6 @@ Conway and Soifer provided two ways to cover an equilateral triangle $T$ of side
    \end{minipage}
 \end{figure}
 
-\textcolor{blue}{
 For Figure \ref{fig:triangle1}, we first cover the upper part of the original equilateral triangle of side length $n+\epsilon$ equilateral triangle of side length $n-1$ with $(n-1)^2$ triangles (light red triangles). After that, the remaning part is a trapezoid of lengths $1+\epsilon$, $n+\epsilon$, $1+\epsilon$, and $n-1$. Now put $2n-2$ triangles from left, alternatively (green triangles), then we can check that the remaining part is a parallelogram of lengths $1+\epsilon$ and $\epsilon n$, minus a small equilateral triangle of length $\epsilon$ on the left-upper corner.
 This can be covered with 2 triangles if $\epsilon \leq 1 / (n + 1)$ (blue triangles).
 \newline
@@ -80,7 +92,7 @@ $$
 \frac{n}{n-2} \frac{n-1}{n-3} \frac{n-2}{n-4} \cdots \frac{3}{1} \epsilon' = \frac{n(n-1)}{2} \epsilon' = \frac{n}{2} \epsilon.
 $$
 The remaining part of the triangle can be covered with three triangles of unit lengths if $1 + 2\cdot \frac{n}{2}\epsilon \le \frac{3}{2}$, i.e. if $\epsilon \leq \frac{1}{2n}$.
-}
+\end{comment}
 
 
 \begin{theorem}[Conway and Soifer \cite{conway2004coverup, conway2005covering}]
@@ -90,7 +102,7 @@ $n^2 + 2$ unit equilateral triangles can cover an equilateral triangle $T$ of si
 
 \begin{conjecture}[Conway and Soifer \cite{conway2004coverup}]
 \label{conj:main}
-$n^2 + 1$ unit equilateral triangles cannot cover an equilateral triangle $T$ of side $> n$.
+$n^2 + 1$ unit equilateral triangles cannot cover an equilateral triangle $T$ of side $n + \varepsilon$ for any $\varepsilon > 0$.
 \end{conjecture}
 
 \begin{comment}
@@ -130,12 +142,10 @@ Let \(X\) be any union of \(n\) unit vertical equilateral triangles \(S_1, S_2, 
 \end{theorem}
 
 To recover \Cref{thm:triangle-cover-cor} from \Cref{thm:triangle-cover}, assume by contradiction that an vertical equilateral triangle \(T\) of side \(> n\) can be covered by \(n^2 + 1\) unit vertical equilateral triangles. Shrink the covering so that \(T\) have side exactly \(n\) and the small triangles have side \(< 1\). Then we get contradiction by \Cref{thm:triangle-cover} as \(T\) is a union of \(n^2\) unit vertical triangles with disjoint interiors.
-
 As the coverings of \(T\) by Conway and Soifer (\Cref{fig:triangle1} and \ref{fig:triangle2}) and the coverings of trigons by Karabash and Soifer only uses vertical triangles,
 we match the exact minimum number of unit vertical equilateral triangles required for covering.
 
 \begin{corollary}
-
 The minimum number of unit vertical equilateral triangles required to cover a vertical equilateral triangle of side \(n + \varepsilon\) with a sufficiently small $\varepsilon > 0$ is exactly \(n^2+2\).
 
 Also, the minimum number of unit vertical triangles required to cover a trigon made of \(n\) vertical equilateral triangles of side \(1 + \varepsilon\) with a sufficiently small $\varepsilon > 0$ is exactly \(n + 2\).
@@ -143,20 +153,56 @@ Also, the minimum number of unit vertical triangles required to cover a trigon m
 \label{cor:triangle-cover-number}
 \end{corollary}
 
+It is then natural to ask for the maximum possible $\varepsilon > 0$ such that the equilateral triangle of side $n + \varepsilon$ can be covered by $n^2+2$ unit triangles.
+For the equivalent problem on squares, it has been shown that (TODO).
+If we require all triangles to be vertical, then our method can be used to determine the maximum value of $\varepsilon$.
+
+\begin{theorem}
+The largest value of $\varepsilon > 0$ such that the vertical triangle $T$ of side $n + \varepsilon$ can be covered by $n^2+2$ vertical equilateral triangles is $\varepsilon = 1/(n+1)$.
+\label{thm:max-epsilon}
+\end{theorem}
+
+The maximum value is achieved by the first construction of \cite{conway2004coverup} (see \Cref{fig:triangle1}).
+Note that for this $\varepsilon$, the area of the triangle of side $n + \varepsilon$ is $(n + 1/(n+1))^2 = n^2 + 2n/(n+1) + 1/(n+1)^2$ times the area of a unit equilateral triangle,
+so the best covering has an area loss by $2/(n+1) - 1/(n+1)^2$. 
+
 \section{Proof of \Cref{thm:triangle-cover}}
 
 Take the standard Cartesian \(xy\)-coordinate system of a plane.
 Inside the plane, take the triangular grid of unit equilateral triangles with the \(x\)-axis as one of the three axes of the triangular grid.
 
-For every unit vertical triangle \(T\), define its rescaled \(y\)-coordinate \(z_T\) as the \(y\)-coordinate of the horizontal side of $T$ divided by \(\sqrt{3}/2\). Note that \(\sqrt{3}/2\) is the height of a unit equilateral triangle, so the value of \(z_T\) is an integer for every triangle \(T\) in the triangular grid.
-Define the function \(\tilde{f}_T : \mathbb{R} \to \mathbb{R}\) as the following. For any \(z \neq z_T\), the value \(\tilde{f}_T(z)\) is the length of the part of the line \(y = \sqrt{3}z / 2\) covered by triangle \(T\) (the value is zero if \(T\) is disjoint from the line). The value of \(\tilde{f}_T(z_T)\) is chosen so that \(\tilde{f}_T\) is right-continuous everywhere: 1 if \(T\) is pointed upwards, and 0 if \(T\) is pointed downwards.
+\begin{definition}
+For every vertical triangle \(T\), define its rescaled \(y\)-coordinate \(z_T\) as the \(y\)-coordinate of the horizontal side of $T$ divided by \(\sqrt{3}/2\).
+\label{def:rescaled-coord}
+\end{definition}
 
-In this paper, let \(S^1\) be the abelian group quotient \(\mathbb{R} /\mathbb{Z}\). For every unit vertical triangle \(T\), define \(f_T : S^1 \to \mathbb{R}\) as the function \(f_T(t + \mathbb{Z}) = \sum_{n \in \mathbb{Z}} \tilde{f}_T(t + n)\).
+Note that \(\sqrt{3}/2\) is the height of a unit equilateral triangle, so the value of \(z_T\) is an integer for every unit triangle \(T\) in the triangular grid.
+
+\begin{definition}
+For every vertical triangle \(T\), define the function \(\tilde{f}_T : \mathbb{R} \to \mathbb{R}\) as the following. For any \(z \neq z_T\), the value \(\tilde{f}_T(z)\) is the length of the part of the line \(y = \sqrt{3}z / 2\) covered by triangle \(T\) (the value is zero if \(T\) is disjoint from the line). Choose the value of \(\tilde{f}_T(z_T)\) so that \(\tilde{f}_T\) is right-continuous everywhere: the side length of $T$ if \(T\) is pointed upwards, and 0 if \(T\) is pointed downwards.
+\label{def:vertical-triangle-function}
+\end{definition}
+
+In this paper, let \(S^1\) be the abelian group quotient \(\mathbb{R} /\mathbb{Z}\).
+\begin{definition}
+For every vertical triangle \(T\), define \(f_T : S^1 \to \mathbb{R}\) as the function \(f_T(t + \mathbb{Z}) = \sum_{n \in \mathbb{Z}} \tilde{f}_T(t + n)\).
 For any real number \(x\), let \(\left\{ x \right\}\) be the value in \([0, 1)\) equal to \(x\) modulo 1.
+\label{def:projection-ftn}	
+\end{definition}
+
+If $T$ is a unit vertical triangle, we can characterize all possibilities of $f_T$ as the following.
+
+\begin{definition}
 Define \(\nabla_0 (x + \mathbb{Z}) = \left\{ x \right\}\) 
 and \(\Delta_0 (x + \mathbb{Z}) = 1 - \left\{ x \right\}\) for any \(x + \mathbb{Z} \in S^1\) with representative $x \in \mathbb{R}$.
-For every \(a \in S^1\), define the functions \(\Delta_a , \nabla_a : S^1 \to \mathbb{R}\) as the functions \(\nabla_a(x) = \nabla_0(x-a)\) and \(\Delta_a(x) = \Delta_0(x-a)\). If an unit vertical triangle \(T\) is pointed upwards, we have \(f_T = \Delta_{y_T}\), and if \(T\) is pointed downwards, we have \(f_T = \nabla_{y_T}\). 
+For every \(a \in S^1\), define the functions \(\Delta_a , \nabla_a : S^1 \to \mathbb{R}\) as the functions \(\nabla_a(x) = \nabla_0(x-a)\) and \(\Delta_a(x) = \Delta_0(x-a)\).
+\label{def:unit-projection-ftn}
+\end{definition} 
 
+\begin{corollary}
+If a unit vertical triangle \(T\) is pointed upwards, we have \(f_T = \Delta_{y_T}\), and if \(T\) is pointed downwards, we have \(f_T = \nabla_{y_T}\).
+\label{cor:unit-projection-ftn}
+\end{corollary}
 
 \begin{figure}
   \centering
@@ -322,6 +368,21 @@ If \(a > 0\), then \(g\) is right-continuous so \(f(x) = g(x) = \left\{ ax + c \
 We now finish the proof of \Cref{thm:triangle-cover}. By \Cref{lem:triangle-unit-area}, the discontinuities of \(g = \sum_{i=0}^n f_{T_i} - \sum_{j=1}^n f_{S_j}\) have to be equidistributed in \(S^1\) with a gap of \(1/a\) for some positive odd number \(a\).
 But each \(T_i\) can be taken arbitrary as it contains the smaller triangle \(T_i'\) of side \(< 1\). So take each \(T_i\) so that the rescaled \(y\)-coordinates \(z_{T_0}, z_{T_1}, \dots, z_{T_n}\) are different from \(z_{S_1}, z_{S_2}, \dots, z_{S_n}\) modulo 1 and \(z_{T_1} - z_{T_0}\) is an irrational number.
 Then \(g\) has discontinuities at \(z_{T_0} + \mathbb{Z}, z_{T_1} + \mathbb{Z}, \dots, z_{T_n} + \mathbb{Z} \in S^1\), and two of them has an irrational gap. This gives contradiction and finishes the proof.
+
+\section{Proof of \Cref{thm:max-epsilon}}
+
+The group $\mathcal{T}$ was the key of the proof of the main \Cref{thm:triangle-cover}.
+We use the same idea to determine the maximum $\varepsilon > 0$ such that the vertical triangle $T$ of side $n + \varepsilon$ can be covered by $n^2+2$ vertical unit equilateral triangles.
+
+We first examine the first construction of \cite{conway2004coverup, conway2005covering} to show that it is possible to cover $T$ with $\varepsilon = 1/(n+1)$.
+In the construction of \Cref{fig:triangle1}, the bottom trapezoid of left and right side $1 + \varepsilon$ and bottom side $n + \varepsilon$ is covered by $2n+1$ unit equilateral triangles.
+The $n$ unit triangles at the very bottom directed upwards has bottom sides added to a line segment of length $1 + n(1 - \varepsilon)$.
+For the construction to work, we need $n + \varepsilon \leq 1 + n(1 - \varepsilon)$ and 
+by solving we get $\varepsilon \leq 1/(n+1)$.
+
+Now we show that if $\varepsilon > 1/(n+1)$ then it is impossible to cover $T$ with $n^2+2$ vertical unit equilateral triangles.
+Without loss of generality, assume that the bottom side of $T$ is the $x$-axis so that the rescaled coordinate $y_T$ is equal to zero.
+Let $\tilde{f}_T$ be the function defined as \Cref{def:projection-ftn}.
 
 \printbibliography
 
